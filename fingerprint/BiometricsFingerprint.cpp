@@ -480,15 +480,15 @@ Return<void> BiometricsFingerprint::onFingerUp() {
     return Void();
 }
 
-Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
-    set(FOD_PRESSED_PATH, FOD_PRESSED_ON);
-    return Void();
-}
+//Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
+//    set(FOD_PRESSED_PATH, FOD_PRESSED_ON);
+  //  return Void();
+//}
 
-Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
-    set(FOD_PRESSED_PATH, FOD_PRESSED_OFF);
-    return Void();
-}
+//Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
+  //  set(FOD_PRESSED_PATH, FOD_PRESSED_OFF);
+   // return Void();
+//}
 
 }  // namespace implementation
 }  // namespace V2_3

@@ -91,8 +91,8 @@ struct BiometricsFingerprint : public IBiometricsFingerprint, public IXiaomiFing
     Return<void> onFingerUp() override;
 
     // Methods from ::android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint follow.
-    Return<void> onShowUdfpsOverlay() override;
-    Return<void> onHideUdfpsOverlay() override;
+    //Return<void> onShowUdfpsOverlay() override;
+    //Return<void> onHideUdfpsOverlay() override;
 };
 
 }  // namespace implementation
