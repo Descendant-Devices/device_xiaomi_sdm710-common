@@ -143,5 +143,10 @@ ro.telephony.iwlan_operation_mode=legacy
 ro.vendor.extension_library=libqti-perfd-client.so
 
 # USB
+persist.vendor.usb.config.extra=none
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
+vendor.usb.dpl.inst.name=dpl
+vendor.usb.rmnet.func.name=rmnet_bam
+vendor.usb.rmnet.inst.name=rmnet
+vendor.usb.rndis.func.name=rndis_bam
