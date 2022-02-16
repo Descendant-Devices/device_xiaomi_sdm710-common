@@ -2,20 +2,38 @@ type hal_mtdservice_default, domain;
 hal_server_domain(hal_mtdservice_default, hal_mtdservice);
 
 type hal_mtdservice_default_exec, exec_type, vendor_file_type, file_type;
-
 init_daemon_domain(hal_mtdservice_default);
 
 # Allow hwbinder call from hal client to server
 binder_call(hal_mtdservice_client, hal_mtdservice_server)
 
+# Add hwservice related rules
 add_hwservice(hal_mtdservice_server, hal_mtdservice_hwservice)
+
 allow hal_mtdservice_client hal_mtdservice_hwservice:hwservice_manager find;
 
+allow hal_mtdservice_default file_contexts_file:file { read };
 allow hal_mtdservice_default ion_device:chr_file r_file_perms;
 allow hal_mtdservice_default mnt_vendor_file:dir r_dir_perms;
+allow hal_mtdservice_default mnt_vendor_file:file { getattr };
+allow hal_mtdservice_default persist_alarm_file:dir { getattr };
+allow hal_mtdservice_default persist_audio_file:dir { getattr };
+allow hal_mtdservice_default persist_bluetooth_file:dir { getattr };
+allow hal_mtdservice_default persist_camera_file:dir { getattr };
+allow hal_mtdservice_default persist_display_file:dir { getattr };
 allow hal_mtdservice_default persist_drm_file:dir create_dir_perms;
+allow hal_mtdservice_default persist_hvdcp_file:dir { getattr };
+allow hal_mtdservice_default persist_misc_file:dir { getattr };
+allow hal_mtdservice_default persist_rfs_file:dir { getattr };
+allow hal_mtdservice_default persist_rfs_shared_hlos_file:dir { getattr };
+allow hal_mtdservice_default persist_secnvm_file:dir { getattr };
+allow hal_mtdservice_default persist_time_file:dir { getattr };
+allow hal_mtdservice_default persist_vpp_file:dir { getattr };
+allow hal_mtdservice_default self:capability { dac_read_search };
+allow hal_mtdservice_default self:capability { sys_admin };
+allow hal_mtdservice_default sensors_persist_file:dir { getattr };
 allow hal_mtdservice_default tee_device:chr_file rw_file_perms;
 
-set_prop(hal_mtdservice_default, vendor_tee_listener_prop)
-
 dontaudit hal_mtdservice_default self:capability dac_override;
+
+set_prop(hal_mtdservice_default, vendor_tee_listener_prop)
